@@ -1,0 +1,17 @@
+version: '3'
+services:
+  audiogen:
+    image: "ghcr.io/rsxdalv/tts-generation-webui:main"
+    restart: unless-stopped
+    ports:
+      - "7840:7860"
+    container_name: audiogen
+    volumes:
+      - ./audiogen/outputs:/app/tts-generation-webui/outputs
+      - ./audiogen/data:/app/tts-generation-webui/data
+      - ./audiogen/root/cache:/root/.cache
+      - ./audiogen/collections:/app/tts-generation-webui/collections
+      - ./audiogen/voices:/app/tts-generation-webui/voices      
+      - ./audiogen/outputs-rvc:/app/tts-generation-webui/outputs-rvc
+      - ./audiogen/favorites:/app/tts-generation-webui/favorites
+      - ./audiogen/voices-tortoise:/app/tts-generation-webui/voices-tortoise
